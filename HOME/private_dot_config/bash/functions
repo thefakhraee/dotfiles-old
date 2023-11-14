@@ -1,0 +1,277 @@
+source_completion(){
+  [[ -f /etc/bash_completion ]] && ! shopt -oq posix && . /etc/bash_completion
+}
+
+
+create_local_opt() {
+  [[ -d "${local_opt}" ]] || mkdir -p "${local_opt}"
+}
+
+
+add_opt_liquidprompt() {
+  local liquidprompt_source="${local_opt}/liquidprompt/liquidprompt"
+  [[ -f "${liquidprompt_source}" ]] || \
+  git clone --depth 1 \
+    https://github.com/nojhan/liquidprompt.git "${liquidprompt_source%/*}"
+  source "${liquidprompt_source}"
+}
+
+
+add_opt_fzf() {
+  case "${1}" in
+    bash|'')
+      local no_shell=zsh
+      local fzf_dot='bash'
+      ;;
+    zsh)
+      local no_shell=bash
+      local fzf_dot='zsh'
+      ;;
+    *)
+      return 1
+      ;;
+  esac
+  local fzf_git_url='https://github.com/junegunn/fzf.git'
+  local fzf_source="${local_opt}/fzf"
+  local fzf_config="${XDG_CONFIG_HOME:-$HOME/.config}"/fzf/fzf.${fzf_dot}
+
+  [[ -d "${fzf_source}" ]] || git clone --depth 1 ${fzf_git_url} "${fzf_source}"
+  [[ ! -e "${fzf_config}" ]] && \
+  echo n | ${fzf_source}/install --xdg \
+                                 --key-bindings \
+                                 --completion \
+                                 --no-fish \
+                                 --no-${no_shell}
+  source "${fzf_config}"
+}
+
+
+fin() {
+  find "$2" -iname "*$1*"
+}
+
+
+# update only $this repo
+update_repo() {
+  for source in "$@".list; do
+    sudo apt-get update -o Dir::Etc::sourcelist="sources.list.d/${source}" \
+                        -o Dir::Etc::sourceparts="-" \
+                        -o APT::Get::List-Cleanup="0"
+  done
+}
+
+
+# courtsey of grml
+R() {
+  exec $SHELL $SHELL_ARGS "$@"
+}
+
+
+# get file and encode to mp3
+mp3it() {
+	[[ "${1}" = '-r' ]] && remove_origin=true && shift
+	slashnamedot="${1}"
+	namewav="${2}"
+	namedot="${slashnamedot##*/}"
+	name="${namedot%%.*}"
+	[[ -z "${namewav}" ]] && namewav="/$(pwd)/${name/:/BADHY}.wav"
+	{ mplayer -quiet -ao pcm:file="${namewav}" -vo null "${slashnamedot}" || \
+	mpv --ao=pcm --ao-pcm-file="${namewav}" --no-video "${slashnamedot}"; } &&
+	lame "${namewav}" "${name}.mp3"
+	/bin/rm "${namewav}"
+	[[ "${remove_origin}" = 'true' ]] && /bin/rm "${slashnamedot}"
+}
+
+# send git diff to remote server
+gdiffr() {
+  host="${1}"
+  git diff | ssh "${host}" 'cat - >/tmp/.gdiffr'
+}
+
+
+# current mpd playing song
+song() {
+	mpc --host="$XDG_RUNTIME_DIR/mpd/socket" current
+	}
+
+
+# purge unused kernels and headers
+unuker() {
+ kv=$(uname -r|awk -F- '{print $1"-"$2}')
+ sudo aptitude purge \
+ "?installed?or(linux-headers-[0-9],linux-image-[0-9]) ?installed?not(${kv})"
+}
+
+
+new_script() {
+  echo -e '#!/usr/bin/env bash\n#\n#set -x\n' >"${1}"
+  vim "${1}"
+}
+
+
+sshL() {
+  # 43:whois.arin.net:43
+  remotehost=$1
+  localport=$2
+  remoteport=$3
+  [[ -z ${remoteport} ]] && remoteport="${localport}"
+  sudo ssh -nfL "${localport}:${remotehost}:${remoteport}" \
+           -F $HOME/.ssh/config \
+           "${using}"
+}
+
+
+sshR() {
+  localport=$1
+  remoteport=$2
+  [[ -z ${remoteport} ]] && remoteport="0"
+  sudo ssh -R "${remoteport}:localhost:${localport}" \
+           -F $HOME/.ssh/config \
+           "${using}" 2>&1 >/dev/null | \
+       awk '/^Allocated/ {print $3}'
+}
+
+
+setres() {
+  w=${1}
+  h=${2}
+  z=${3}
+  mode=$(cvt ${w} ${h} ${z} | tail -1 | cut -d' ' -f2-)
+  size=${w}x${h}_${z}.00
+  output=$(xrandr | awk '/ connect/ {print $1}')
+  xrandr --newmode ${mode}
+  xrandr --addmode ${output} ${size}
+  xrandr -s ${size}
+}
+
+
+wgetr() {
+  wget --no-directories --recursive --level=1 --execute robots=off "${1}"
+}
+
+
+swapmouse() {
+  xmodmap -e "pointer = 3 2 1"
+}
+
+
+# cheat.sh
+che() {
+	curl http://cheat.sh/"$1"
+}
+
+# m4a to mp3
+fmp3it() {
+       ffmpeg -i "$1" -c:v copy -c:a libmp3lame -q:a 4 "$2"
+}
+
+# debian
+updg() {
+       sudo -- sh -c 'apt update && apt upgrade -y && apt autoremove -y && apt clean'
+}
+
+# emacs
+vterm_printf() {
+    if [ -n "$TMUX" ] && ([ "${TERM%%-*}" = "tmux" ] || [ "${TERM%%-*}" = "screen" ] ); then
+        # Tell tmux to pass the escape sequences through
+        printf "\ePtmux;\e\e]%s\007\e\\" "$1"
+    elif [ "${TERM%%-*}" = "screen" ]; then
+        # GNU screen (screen, screen-256color, screen-256color-bce)
+        printf "\eP\e]%s\007\e\\" "$1"
+    else
+        printf "\e]%s\e\\" "$1"
+    fi
+}
+
+vterm_cmd() {
+    local vterm_elisp
+    vterm_elisp=""
+    while [ $# -gt 0 ]; do
+        vterm_elisp="$vterm_elisp""$(printf '"%s" ' "$(printf "%s" "$1" | sed -e 's|\\|\\\\|g' -e 's|"|\\"|g')")"
+        shift
+    done
+    vterm_printf "51;E$vterm_elisp"
+}
+
+vterm_set_directory() {
+    vterm_cmd update-pwd "$PWD/"
+}
+
+
+# cheat.sh
+cheat() {
+  curl cheat.sh/"$1"
+}
+
+p() {
+  addr="$1.$1.$1.$1"
+  shift
+  ping $@ $addr
+}
+
+# change up n dirs
+# https://www.commandlinefu.com/commands/view/10751/quickly-cd-out-of-directories-without-5-aliases
+up() { local x='';for i in $(seq ${1:-1});do x="$x../"; done;cd $x; }
+
+# move currently playing song
+mvq() {
+  set -x
+  title=$(quodlibet --print-playing '<title>')
+  filename=$(quodlibet --print-query="${title}"|tail -1)
+  mv "${filename}"  .
+  set +x
+}
+
+# youtube mp3
+youtube_mp3() {
+  yt-dlp \
+  -f ba \
+  -audio \
+  -format mp3 \
+  -quality 0 $1 &>/dev/null |
+  tail -3
+}
+
+# podman
+#pd() {
+#  usage() {
+#    echo "
+#    rr: run --rm
+#    ra: run -it alpine:latest
+#    rra: run --rm -it alpine:latest
+#    i: images
+#    x: exec -it
+#    "
+#  }
+  
+#  _p-x() {
+#    set -x
+#    podman "${@}"
+    #  set +x
+#  }
+#  case "${1}" in
+#    rr)
+#      shift
+#      _p-x run --rm "${@}"
+#      ;;
+#    ra)
+#      shift
+#      _p-x run -it --name ${1} alpine:latest "${2}"
+#      ;;
+#    rra)
+#      shift
+#      pd rr -it --name ${1} alpine:latest "${2}"
+#      ;;
+#    i)
+#      _p-x images --sort size
+#      ;;
+#    x)
+#      shift
+#      _p-x exec -it "${@}"
+#      ;;
+#    *|'')
+#      usage
+#      ;;
+#    esac
+#}
+

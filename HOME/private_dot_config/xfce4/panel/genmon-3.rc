@@ -1,0 +1,6 @@
+Command=sh -c '$HOME/.local/bin/show playing 2>/dev/null'
+UseLabel=0
+Text=(genmon)
+UpdatePeriod=30000
+Font=Space Mono 10
+
