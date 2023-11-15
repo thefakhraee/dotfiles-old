@@ -1,0 +1,87 @@
+[settings]
+columns = ~#track,~people,~title~version,~#length,~basename
+	
+default_rating = 0.5
+scan = /home/fakhraee/Music
+
+[memory]
+browser = PanedBrowser
+chooser_dir = /home/fakhraee/Music
+column_expands = ~people,1,~title~version,1,~basename,1
+	
+column_widths = ~people,-1,~title~version,-1,~basename,-1
+	
+open_browsers = 
+plugin_prefs_maximized = 0
+plugin_prefs_position = 504 42
+plugin_prefs_size_ = 989 868
+plugin_selection = Force Write
+prefs_page = tagging
+queue_disable = False
+queue_expanded = False
+quodlibet_last_active_version = 4.6.0
+quodlibet_maximized = 0
+quodlibet_position = 226 17
+quodlibet_properties_maximized = 0
+quodlibet_properties_pos = 0.4003215434083601
+quodlibet_properties_position = 299 158
+quodlibet_properties_size_single = 622 448
+quodlibet_size_ = 1451 831
+seek = 314034
+sidebar_pos = 0.250206440957886
+song = /home/fakhraee/.priv/Music/IV-IN/IV-IN - Mantra.mp3
+sortby = 0~people
+	
+volume = 1.0
+
+[player]
+gst_buffer = 3.0
+is_playing = True
+replaygain_mode = auto
+
+[browsers]
+pane_mode = 1
+pane_selection = 1	.
+	1	.
+panedbrowser_pane_widths = 0.5
+	
+panedbrowser_pos = 0.4045485871812543
+query_text = 
+
+[library]
+watch = true
+
+[display]
+duration_format = text-full
+
+[__config__]
+version = 0
+
+[plugins]
+active_plugins = mpris
+	Notify
+	SeekBar
+	Theme Switcher
+	Tray Icon
+animosd_monitor = 0
+cover_engine_discogs = True
+icon_tooltip = <album|<album~discnumber~part~tracknumber~title~version>|<artist~title~version>>
+notify_bodypattern = <~length>
+	<album|<album><discsubtitle| - <discsubtitle>>
+	><~year|<~year>>
+notify_show_notifications = all
+notify_show_only_when_unfocused = False
+quodlibet.fake.plugins.visualisations_executable = projectM-pulseaudio
+scrobbler_service = Last.fm
+shufflebygrouping_grouping = ~grouping~album~albumartist
+shufflebygrouping_grouping_filter = grouping
+squeezebox_debug = False
+theme switcher_prefer_dark = true
+theme switcher_theme = Adwaita
+
+[rename]
+windows = true
+
+[editing]
+auto_save_changes = false
+

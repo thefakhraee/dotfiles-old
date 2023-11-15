@@ -1,0 +1,8 @@
+new-session -s 'init'
+send-keys 'sudo journalctl -f' C-m
+neww
+send-keys 'p 1' C-m
+splitp -v
+send-keys 'sshkt me.mostafajan-443' C-m
+
+

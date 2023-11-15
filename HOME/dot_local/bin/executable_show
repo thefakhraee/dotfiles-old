@@ -127,9 +127,25 @@ getPing() {
 
 # Currently playing
 getPlaying() {
-  local artist=$(playerctl metadata | awk '/artist/ {$1=$2=""; print}')
-  local title=$(playerctl metadata | awk '/title/ {$1=$2=""; print}')
-  ##*( )
+  count=0
+  for i in $(playerctl status -a); do
+    if [[ $i = "Playing" ]]
+    then iter=$count
+    fi
+    (( count++ ))
+  done
+
+  count=0
+  for i in $(playerctl -l); do
+    if [[ $count = $iter ]]
+    then player="$i"
+    fi
+    (( count++ ))
+  done
+
+  artist=$(playerctl -p "${player}" metadata | awk '/artist/ {$1=$2=""; print}')
+  title=$(playerctl -p "${player}" metadata | awk '/title/ {$1=$2=""; print}')
+  
   echo "${artist##*( )} - ${title##*( )}"
 }
 

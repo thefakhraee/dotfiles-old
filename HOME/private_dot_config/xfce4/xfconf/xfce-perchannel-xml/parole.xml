@@ -20,6 +20,8 @@
   <property name="playlist" type="empty">
     <property name="repeat" type="bool" value="true"/>
     <property name="remember-playlist" type="bool" value="true"/>
+    <property name="remove-duplicates" type="bool" value="true"/>
+    <property name="play-opened-files" type="bool" value="false"/>
   </property>
   <property name="parole" type="empty">
     <property name="plugins" type="string" value="parole-mpris2.so;tray-icon.so;parole-notify.so"/>
