@@ -13,10 +13,6 @@
         <property name="inhibit" type="bool" value="false"/>
       </property>
     </property>
-    <property name="plugin-5" type="string" value="separator">
-      <property name="style" type="uint" value="0"/>
-      <property name="expand" type="bool" value="false"/>
-    </property>
     <property name="plugin-6" type="string" value="systray">
       <property name="square-icons" type="bool" value="true"/>
       <property name="known-legacy-items" type="array">
@@ -94,10 +90,6 @@
     <property name="plugin-39" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
     </property>
-    <property name="plugin-40" type="string" value="separator">
-      <property name="style" type="uint" value="0"/>
-      <property name="expand" type="bool" value="false"/>
-    </property>
     <property name="plugin-45" type="string" value="genmon"/>
     <property name="plugin-46" type="string" value="genmon"/>
     <property name="plugin-3" type="string" value="genmon"/>
@@ -106,13 +98,20 @@
       <property name="expand" type="bool" value="true"/>
     </property>
     <property name="plugin-1" type="string" value="wavelan"/>
-    <property name="plugin-4" type="string" value="separator">
-      <property name="style" type="uint" value="0"/>
-    </property>
     <property name="plugin-8" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
     </property>
     <property name="plugin-9" type="string" value="genmon"/>
+    <property name="plugin-2" type="string" value="genmon"/>
+    <property name="plugin-4" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-5" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-10" type="string" value="separator">
+      <property name="style" type="uint" value="0"/>
+    </property>
   </property>
   <property name="configver" type="int" value="2"/>
   <property name="panels" type="array">
@@ -127,19 +126,20 @@
       <property name="plugin-ids" type="array">
         <value type="int" value="19"/>
         <value type="int" value="12"/>
-        <value type="int" value="40"/>
+        <value type="int" value="9"/>
+        <value type="int" value="39"/>
+        <value type="int" value="46"/>
+        <value type="int" value="10"/>
+        <value type="int" value="14"/>
         <value type="int" value="11"/>
         <value type="int" value="3"/>
         <value type="int" value="38"/>
         <value type="int" value="45"/>
         <value type="int" value="36"/>
         <value type="int" value="25"/>
-        <value type="int" value="4"/>
-        <value type="int" value="14"/>
-        <value type="int" value="39"/>
-        <value type="int" value="46"/>
-        <value type="int" value="9"/>
         <value type="int" value="5"/>
+        <value type="int" value="2"/>
+        <value type="int" value="4"/>
         <value type="int" value="1"/>
         <value type="int" value="8"/>
         <value type="int" value="6"/>

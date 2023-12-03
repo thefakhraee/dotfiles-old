@@ -54,12 +54,13 @@
 	 [add-hook change-major-mode-hook org-babel-show-result-all append local]
 	 5]
      org-babel-result-hide-spec org-babel-hide-all-hashes display-fill-column-indicator-mode))
- '(org-startup-folded 'content)
+ '(org-startup-folded t)
+ '(org-startup-numerated t)
  '(package-archives
    '(("gnu" . "https://elpa.gnu.org/packages/")
      ("melpa" . "https://raw.githubusercontent.com/d12frosted/elpa-mirror/master/melpa/")))
  '(package-selected-packages
-   '(celestial-mode-line diredfl rainbow-delimiters eshell-syntax-highlighting trashed org-download dired-launch dired-hide-dotfiles playerctl compat olivetti embark-consult ace-window crux org-modern rg corfu popper pulsar which-key vertico orderless monokai-theme modus-themes marginalia embark bind-key bash-completion avy))
+   '(ox-reveal celestial-mode-line diredfl rainbow-delimiters eshell-syntax-highlighting trashed org-download dired-launch dired-hide-dotfiles playerctl compat olivetti embark-consult ace-window crux org-modern rg corfu popper pulsar which-key vertico orderless monokai-theme modus-themes marginalia embark bind-key bash-completion avy))
  '(popper-echo-mode t)
  '(popper-mode t)
  '(popper-reference-buffers
@@ -76,6 +77,7 @@
  '(sh-basic-offset 2)
  '(shell-dynamic-complete-functions
    '(comint-c-a-p-replace-by-expanded-history shell-environment-variable-completion shell-command-completion shell-c-a-p-replace-by-expanded-directory pcomplete-completions-at-point shell-filename-completion comint-filename-completion bash-completion-dynamic-complete))
+ '(shell-file-name "/bin/bash")
  '(tab-always-indent 'complete)
  '(tab-bar-close-button-show nil)
  '(tab-bar-format '(tab-bar-format-tabs))

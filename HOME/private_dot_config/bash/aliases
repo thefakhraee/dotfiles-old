@@ -1,7 +1,7 @@
 # sudo aliases
 alias sudo='sudo '
 
-alias ls='ls --color'
+alias ls='ls --literal --color=auto'
 alias l='ls -1'
 alias ll='ls -l'
 alias la='ls -a'
@@ -30,6 +30,7 @@ alias mpv='mpv --audio-display=no'
 #alias mvq='mv "$(quodlibet --print-query=title=$(quodlibet --print-playing "<title>"))" .'
 alias amvq='quodlibet --print-query=title="$(quodlibet --print-playing "'"<title>"'")"'
 alias yt-dlp='proxychains yt-dlp'
+alias yt3='yt-dlp -f ba -x --audio-format mp3 -o "%(title)s"'
 
 #
 alias rr='rm -ri'
@@ -49,3 +50,6 @@ alias dg='dig +{,no}short'
 alias pyweb='hostname -I && python3 -m http.server'
 alias syslog='sudo xtail /var/log/syslog'
 alias mg='mg -n'
+alias tar='tar --one-top-level'
+alias debs-by-size="dpkg-query -Wf 'x \${Installed-Size} \${Package} \${Status}\n' | sed -ne '/^x  /d' -e '/^x \(.*\) install ok installed$/s//\1/p' | sort -nr"
+alias emc="emacsclient"

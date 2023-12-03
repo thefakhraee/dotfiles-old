@@ -15,14 +15,6 @@ ajz='/usr/share/autojump/autojump.zsh'
 eval $(dircolors -b)
 [[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh
 
-# sources
-source $HOME/.config/bash/profile
-source $HOME/.config/bash/variables
-source $HOME/.config/bash/functions
-source $HOME/.config/bash/aliases
-source $HOME/.config/zsh/aliases
-source $HOME/.config/zsh/chezmoi.zsh
-
 # run functions
 create_local_opt
 add_opt_liquidprompt
@@ -46,14 +38,9 @@ HISTFILE=~/.zsh_history
 #[[ -n "$INSIDE_EMACS" ]] && chpwd() { print -P "\033AnSiTc %d" }
 [[ -n "${INSIDE_EMACS}" ]] && chpwd() { print -P "\032/$(pwd)" } || true
 
-
-# emacs vterm
-vterm_prompt_end() {
-    vterm_printf "51;A$(whoami)@$(hostname):$(pwd)";
-}
+# vterm
 setopt PROMPT_SUBST
 PROMPT=$PROMPT'$(vterm_prompt_end)'
-
 autoload -U add-zsh-hook
 add-zsh-hook -Uz chpwd (){ vterm_set_directory }
 

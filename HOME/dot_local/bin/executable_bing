@@ -14,7 +14,7 @@ api="/HPImageArchive.aspx?"
 format="&format=js"
 day="&idx=0"
 const="&n=1"
-extn=".png"
+extn=".jpg"
 size="1920x1200"
 reqImg="${bing}${api}${format}${day}${market}${const}"
 [[ -d "${path}" ]] || mkdir -p "${path}"
@@ -35,12 +35,7 @@ reqImgURL=${bing}$(echo "${apiResp}" |
 echo "${reqImgURL}"
 imgName=${reqImgURL%%&*} && imgName=${imgName##*=} && imgName=${imgName##*OHR.}
 
-{ [[ -f "${path}/${imgName%%.*}.png" ]] &&
+{ [[ -f "${path}/${imgName%%.*}${extn}" ]] &&
   echo "Image already exists"; } ||
-{ curl -s -o "${path}/${imgName}" "${reqImgURL}" &&
-  echo "Saving image to ${path}/${imgName} and converting to png";
-  mogrify -format png ${path}/${imgName} && rm -f ${path}/${imgName}; }
-
-xdg-open "${path}/${imgName%%.*}.png"
-
-#feh  --bg-scale "${path}/${imgName%.*}.png" || echo "Error setting wallpaper"
+curl -s -o "${path}/${imgName}" "${reqImgURL}" &&
+xdg-open "${path}/${imgName%%.*}${extn}"

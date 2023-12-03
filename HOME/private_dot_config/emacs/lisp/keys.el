@@ -29,12 +29,17 @@
 	    ("h" . whitespace-mode)
 	    ("i" . ibuffer)
 	    ("k" . local/kill-that-buffer)
+	    ("n" . make-directory)
 	    ("o" . consult-buffer-other-window)
 	    ("p i" . package-install)
 	    ("p l" . package-list-packages)
 	    ("p r" . package-autoremove)
-	    ("r" . replace-string)
-	    ("R" . shr-render-buffer)
+	    ("p g" . playerctl-play-pause-song)
+	    ("p n" . playerctl-next-song)
+	    ("p p" . playerctl-previous-song)	    
+	    ("r h" . shr-render-buffer)
+	    ("r p" . replace-string)
+	    ("r s" . async-shell-command)	    
 	    ("s c" . avy-goto-char)
 	    ("s f" . consult-find)
 	    ("s g" . consult-grep)
@@ -57,11 +62,11 @@
 
 ;;; Saving Time?
 (bind-keys*
- ;;("M-`"
  ("M-<backspace>" . vterm)
  ("M-\\" . eshell)
  ("M-SPC" . consult-buffer)
  ("M-o" . consult-buffer-other-window)
+ ("M-`" . ace-window)
  ("M--" . popper-toggle-latest)
  ("M-s" . consult-line)
  ("M-;" . consult-history)
@@ -72,6 +77,7 @@
 (bind-keys*
  ("M-ط" . execute-extended-command)
  ("C-ط C-س" . save-buffer)
+ ("C-x خ" . other-window)
  ("C-ب" . forward-char)
  ("C-ذ" . backward-char)
  ("M-ص" . kill-ring-save)

@@ -1,5 +1,9 @@
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
 HISTCONTROL=ignoreboth
 INPUTRC=$HOME/.config/bash/inputrc
 local_opt="$HOME/.local/opt"
+GOPATH="$HOME/Projects/golang"
+if [[ -z $INSIDE_EMACS ]]; then
+  export EDITOR="emacsclient -t"
+else
+  export EDITOR="emacsclient"
+fi
