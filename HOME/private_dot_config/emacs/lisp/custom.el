@@ -41,6 +41,7 @@
  '(eshell-visual-subcommands '(("chezmoi" "cd")))
  '(gc-cons-threshold 50000000)
  '(global-corfu-mode t)
+ '(global-visual-line-mode t)
  '(initial-buffer-choice t)
  '(marginalia-max-relative-age 0)
  '(marginalia-mode t)
