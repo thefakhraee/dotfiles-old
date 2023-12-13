@@ -9,7 +9,7 @@
 	    ("C-<backspace>" . vterm-send-next-key)
 	    ("SPC" . consult-buffer)
 	    ("\\" . eshell)
-	    ("-" . popper-toggle-latest)
+	    ("-" . popper-toggle)
 	    ("[" . local/google-translate)
 	    ("]" . local/bidi)
 	    ("=" . local/unsocks)
@@ -42,7 +42,6 @@
 	    ("r s" . async-shell-command)	    
 	    ("s c" . avy-goto-char)
 	    ("s f" . consult-find)
-	    ("s g" . consult-grep)
 	    ("s l" . consult-goto-line)
 	    ("s m" . consult-line-multi)
 	    ("s r" . rg)
@@ -71,7 +70,8 @@
  ("M-s" . consult-line)
  ("M-;" . consult-history)
  ("M-[" . local/google-translate)
- ("M-]" . local/bidi))
+ ("M-]" . local/bidi)
+ ("M-G" . consult-grep))
 
 ;;; In Persian Layout
 (bind-keys*

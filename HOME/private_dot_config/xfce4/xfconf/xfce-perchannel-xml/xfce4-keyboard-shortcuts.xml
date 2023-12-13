@@ -42,29 +42,29 @@
       <property name="Print" type="string" value="xfce4-screenshooter"/>
       <property name="&lt;Shift&gt;Print" type="string" value="xfce4-screenshooter -r"/>
       <property name="override" type="bool" value="true"/>
-      <property name="&lt;Super&gt;r" type="string" value="jumpapp virt-manager">
-        <property name="startup-notify" type="bool" value="true"/>
-      </property>
       <property name="&lt;Super&gt;c" type="string" value="xfce4-popup-clipman"/>
-      <property name="&lt;Super&gt;e" type="string" value="jumpapp emacs"/>
       <property name="&lt;Shift&gt;&lt;Super&gt;t" type="string" value="xfce4-terminal"/>
       <property name="&lt;Shift&gt;&lt;Super&gt;e" type="string" value="emacsclient -nce"/>
       <property name="&lt;Super&gt;space" type="string" value="rofi -modi window,ssh,drun -show drun -theme dmenu -show-icons -theme-str &apos;window {location: south; anchor: south;}&apos;">
         <property name="startup-notify" type="bool" value="true"/>
       </property>
-      <property name="&lt;Super&gt;w" type="string" value="jumpapp -w -i brave brave-browser"/>
       <property name="&lt;Shift&gt;&lt;Super&gt;space" type="string" value="rofi -show window -theme dmenu -show-icons -theme-str &apos;window {location: south; anchor: south;}&apos;">
         <property name="startup-notify" type="bool" value="true"/>
       </property>
       <property name="&lt;Super&gt;F1" type="string" value="sh -c &apos;rofi -e &quot;$(cat ~/Sync/files/desktop-help.org)&quot; -theme sidebar&apos;"/>
-      <property name="&lt;Super&gt;f" type="string" value="jumpapp thunar"/>
-      <property name="&lt;Super&gt;q" type="string" value="jumpapp quodlibet"/>
       <property name="&lt;Super&gt;period" type="string" value="sh -c &apos;$HOME/.local/bin/secx&apos;">
         <property name="startup-notify" type="bool" value="true"/>
       </property>
       <property name="&lt;Shift&gt;&lt;Super&gt;Escape" type="string" value="xkill"/>
-      <property name="&lt;Super&gt;g" type="string" value="jumpapp telegram-desktop"/>
-      <property name="&lt;Super&gt;t" type="string" value="jumpapp xfce4-terminal"/>
+      <property name="&lt;Super&gt;e" type="string" value="jumpapp -R emacs"/>
+      <property name="&lt;Super&gt;q" type="string" value="jumpapp -R quodlibet"/>
+      <property name="&lt;Super&gt;f" type="string" value="jumpapp -R thunar"/>
+      <property name="&lt;Super&gt;r" type="string" value="jumpapp -R virt-manager">
+        <property name="startup-notify" type="bool" value="true"/>
+      </property>
+      <property name="&lt;Super&gt;g" type="string" value="sh -c &apos;jumpapp -R telegram-desktop || jumpapp -R -t &quot;Telegram Web&quot; brave&apos;"/>
+      <property name="&lt;Super&gt;t" type="string" value="jumpapp -w xfce4-terminal"/>
+      <property name="&lt;Super&gt;w" type="string" value="jumpapp -w -i brave brave-browser"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
