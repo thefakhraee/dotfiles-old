@@ -31,6 +31,8 @@
  '(dired-mode-hook
    '(org-download-enable dired-launch-mode dired-hide-dotfiles-mode dired-hide-details-mode))
  '(dired-recursive-copies 'always)
+ '(ediff-split-window-function 'split-window-horizontally)
+ '(ediff-window-setup-function 'ediff-setup-windows-plain)
  '(erc-hide-list '("JOIN" "QUIT"))
  '(erc-nick "thefakhraee")
  '(erc-server "localhost")
