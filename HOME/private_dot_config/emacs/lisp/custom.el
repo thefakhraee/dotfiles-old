@@ -43,6 +43,7 @@
  '(eshell-visual-subcommands '(("chezmoi" "cd")))
  '(gc-cons-threshold 50000000)
  '(global-corfu-mode t)
+ '(global-flycheck-mode t)
  '(global-visual-line-mode t)
  '(initial-buffer-choice t)
  '(marginalia-max-relative-age 0)
@@ -63,7 +64,7 @@
    '(("gnu" . "https://elpa.gnu.org/packages/")
      ("melpa" . "https://raw.githubusercontent.com/d12frosted/elpa-mirror/master/melpa/")))
  '(package-selected-packages
-   '(ox-reveal celestial-mode-line diredfl rainbow-delimiters eshell-syntax-highlighting trashed org-download dired-launch dired-hide-dotfiles playerctl compat olivetti embark-consult ace-window crux org-modern rg corfu popper pulsar which-key vertico orderless monokai-theme modus-themes marginalia embark bind-key bash-completion avy))
+   '(lsp-ui lsp-mode flycheck yaml-mode ox-reveal celestial-mode-line diredfl rainbow-delimiters eshell-syntax-highlighting trashed org-download dired-launch dired-hide-dotfiles playerctl compat olivetti embark-consult ace-window crux org-modern rg corfu popper pulsar which-key vertico orderless monokai-theme modus-themes marginalia embark bind-key bash-completion avy))
  '(popper-echo-mode t)
  '(popper-mode t)
  '(popper-reference-buffers

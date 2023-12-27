@@ -66,7 +66,7 @@
  ("M-SPC" . consult-buffer)
  ("M-o" . consult-buffer-other-window)
  ("M-`" . ace-window)
- ("M--" . popper-toggle-latest)
+ ("M--" . popper-toggle)
  ("M-s" . consult-line)
  ("M-;" . consult-history)
  ("M-[" . local/google-translate)
