@@ -5,7 +5,7 @@
 ;	    :prefix "M-SPC"
 
 	    ("`" . tmm-menubar)
-	    ("<backspace>" . vterm)
+	    ("<backspace>" . vterm-toggle)
 	    ("C-<backspace>" . vterm-send-next-key)
 	    ("SPC" . consult-buffer)
 	    ("\\" . eshell)
@@ -61,7 +61,7 @@
 
 ;;; Saving Time?
 (bind-keys*
- ("M-<backspace>" . vterm)
+ ("M-<backspace>" . vterm-toggle)
  ("M-\\" . eshell)
  ("M-SPC" . consult-buffer)
  ("M-o" . consult-buffer-other-window)
