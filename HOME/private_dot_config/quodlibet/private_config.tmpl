@@ -1,15 +1,15 @@
 [settings]
-columns = ~#track,artist,title,~#length,~basename
+columns = artist,title,~filename
 	
 default_rating = 0.5
 scan = /home/{{ .chezmoi.username }}/Music
 
 [memory]
-browser = Paned
+browser = SearchBar
 chooser_dir = /home/{{ .chezmoi.username }}/Music
-column_expands = artist,1,title,1,~basename,1
+column_expands = artist,1,title,1,~filename,1
 	
-column_widths = artist,-1,title,-1,~basename,-1
+column_widths = artist,-1,title,-1,~filename,-1
 	
 open_browsers = 
 plugin_prefs_maximized = 4
@@ -63,10 +63,15 @@ version = 0
 
 [plugins]
 active_plugins = Tray Icon
-	Notify
+	Convert Encodings
+	refresh-songs
+	AcoustidSearch
+	mpris
 	Theme Switcher
 	WaveformSeekBar
-	mpris
+	filterbrowser
+	Notify
+	Duplicates
 animosd_monitor = 0
 cover_engine_discogs = True
 icon_tooltip = <album|<album~discnumber~part~tracknumber~title~version>|<artist~title~version>>

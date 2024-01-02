@@ -17,9 +17,9 @@
  '(confirm-kill-emacs 'y-or-n-p)
  '(corfu-auto t)
  '(current-language-environment "Persian")
- '(custom-enabled-themes '(modus-vivendi-tritanopia))
+ '(custom-enabled-themes '(doom-material-dark))
  '(custom-safe-themes
-   '("c171012778b7cf795ac215b91e1ecab8e3946738d03095397a790ed41e0a3386" "37c8c2817010e59734fe1f9302a7e6a2b5e8cc648cf6a6cc8b85f3bf17fececf" "78e6be576f4a526d212d5f9a8798e5706990216e9be10174e3f3b015b8662e27" default))
+   '("da75eceab6bea9298e04ce5b4b07349f8c02da305734f7c0c8c6af7b5eaa9738" "c171012778b7cf795ac215b91e1ecab8e3946738d03095397a790ed41e0a3386" "37c8c2817010e59734fe1f9302a7e6a2b5e8cc648cf6a6cc8b85f3bf17fececf" "78e6be576f4a526d212d5f9a8798e5706990216e9be10174e3f3b015b8662e27" default))
  '(default-input-method "farsi-isiri-9147")
  '(delete-by-moving-to-trash t)
  '(desktop-base-file-name "emacs.desktop")
@@ -64,7 +64,7 @@
    '(("gnu" . "https://elpa.gnu.org/packages/")
      ("melpa" . "https://raw.githubusercontent.com/d12frosted/elpa-mirror/master/melpa/")))
  '(package-selected-packages
-   '(vterm-toggle lsp-ui lsp-mode flycheck yaml-mode ox-reveal celestial-mode-line diredfl rainbow-delimiters eshell-syntax-highlighting trashed org-download dired-launch dired-hide-dotfiles playerctl compat olivetti embark-consult ace-window crux org-modern rg corfu popper pulsar which-key vertico orderless monokai-theme modus-themes marginalia embark bind-key bash-completion avy))
+   '(doom-themes xterm-color vterm-toggle lsp-ui lsp-mode flycheck yaml-mode ox-reveal celestial-mode-line diredfl rainbow-delimiters eshell-syntax-highlighting trashed org-download dired-launch dired-hide-dotfiles playerctl compat olivetti embark-consult ace-window crux org-modern rg corfu popper pulsar which-key vertico orderless marginalia embark bind-key bash-completion avy))
  '(popper-echo-mode t)
  '(popper-mode t)
  '(popper-reference-buffers
@@ -108,6 +108,7 @@
       (path)
       (setq default-directory path))))
  '(vterm-max-scrollback 10000)
+ '(vterm-shell "/bin/zsh")
  '(warning-suppress-types '((comp)))
  '(which-key-idle-delay 0.5)
  '(which-key-mode t)

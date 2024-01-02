@@ -53,11 +53,9 @@
       <property name="&lt;Super&gt;F1" type="string" value="sh -c &apos;rofi -e &quot;$(cat ~/Sync/files/desktop-help.org)&quot; -theme sidebar&apos;"/>
       <property name="&lt;Shift&gt;&lt;Super&gt;Escape" type="string" value="xkill"/>
       <property name="&lt;Super&gt;q" type="string" value="jumpapp -R quodlibet"/>
-      <property name="&lt;Super&gt;f" type="string" value="jumpapp -R thunar"/>
       <property name="&lt;Super&gt;r" type="string" value="jumpapp -R virt-manager">
         <property name="startup-notify" type="bool" value="true"/>
       </property>
-      <property name="&lt;Super&gt;g" type="string" value="sh -c &apos;jumpapp -R telegram-desktop || jumpapp -R -t &quot;Telegram Web&quot; brave&apos;"/>
       <property name="&lt;Super&gt;w" type="string" value="jumpapp -w -i brave brave-browser"/>
       <property name="&lt;Super&gt;Tab" type="string" value="jumpapp -R emacs"/>
       <property name="&lt;Super&gt;e" type="string" value="jumpapp -R exfalso"/>
@@ -68,6 +66,8 @@
       <property name="&lt;Shift&gt;&lt;Super&gt;s" type="string" value="xfce4-terminal"/>
       <property name="&lt;Super&gt;y" type="string" value="jumpapp -R spotify"/>
       <property name="&lt;Super&gt;p" type="string" value="jumpapp -R -t MON xfce4-terminal -T MON -e &apos;tmux attach&apos;"/>
+      <property name="&lt;Super&gt;f" type="string" value="jumpapp -w thunar"/>
+      <property name="&lt;Super&gt;g" type="string" value="sh -c &apos;jumpapp -R Telegram || jumpapp -R telegram-desktop || jumpapp -R -t &quot;Telegram Web&quot; brave&apos;"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">
