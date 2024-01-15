@@ -1,6 +1,7 @@
 # sudo aliases
 alias sudo='sudo '
 
+# ls
 alias ls='ls --literal --color=auto'
 alias l='ls -1'
 alias ll='ls -l'
@@ -12,6 +13,12 @@ alias ..='cd ..'
 
 # grep
 alias grep='grep --color=auto'
+
+# cat
+alias cat='batcat'
+
+# mv
+alias mv='mv -i'
 
 # ssh
 alias sagent='eval $(ssh-agent -s)'
@@ -35,7 +42,7 @@ alias yt3='yt-dlp -f ba -x --audio-format mp3 -o "%(title)s"'
 #
 alias rr='rm -ri'
 alias rm='rm -i'
-alias less='less -FX'
+alias less='less -FRX'
 alias diff='colordiff'
 alias dush='du -csh *|sort -h'
 alias scl='sudo systemctl'
