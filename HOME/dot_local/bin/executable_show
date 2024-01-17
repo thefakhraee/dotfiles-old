@@ -95,7 +95,7 @@ getIPPub() {
 getMem() {
   # getMemFree
   getMemFree() {
-    awk '/MemFree/ { printf "%.3f\n", $2/1024/1024 }' /proc/meminfo
+    awk '/MemAvailable/ { printf "%.3f\n", $2/1024/1024 }' /proc/meminfo
   }
 
   local input="${1}"
