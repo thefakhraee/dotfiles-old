@@ -1,0 +1,7 @@
+Types: deb
+#URIs: http://cdn-fastly.deb.debian.org/debian
+URIs: http://debian.partdp.ir/
+Suites: testing testing-updates testing-proposed-updates testing-backports
+Components: main contrib non-free non-free-firmware
+Signed-By: /etc/apt/keyrings/archive-key-12.asc
+#Trusted: yes
