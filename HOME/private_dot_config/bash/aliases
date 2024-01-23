@@ -57,6 +57,5 @@ alias dg='dig +{,no}short'
 alias pyweb='hostname -I && python3 -m http.server'
 alias syslog='sudo xtail /var/log/syslog'
 alias mg='mg -n'
-alias tar='tar --one-top-level'
 alias debs-by-size="dpkg-query -Wf 'x \${Installed-Size} \${Package} \${Status}\n' | sed -ne '/^x  /d' -e '/^x \(.*\) install ok installed$/s//\1/p' | sort -nr"
 alias emc="emacsclient"
