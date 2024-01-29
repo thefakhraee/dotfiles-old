@@ -39,6 +39,10 @@ alias amvq='quodlibet --print-query=title="$(quodlibet --print-playing "'"<title
 alias yt-dlp='proxychains yt-dlp'
 alias yt3='yt-dlp -f ba -x --audio-format mp3 -o "%(title)s"'
 
+# nerdctl
+alias nl='nerdctl'
+alias nlr='nerdctl run --rm'
+
 #
 alias rr='rm -ri'
 alias rm='rm -i'

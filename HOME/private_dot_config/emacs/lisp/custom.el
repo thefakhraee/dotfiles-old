@@ -31,7 +31,8 @@
  '(dired-mode-hook
    '(org-download-enable dired-hide-dotfiles-mode dired-hide-details-mode))
  '(dired-recursive-copies 'always)
- '(diredfl-global-mode t)
+ '(diredfl-global-mode t nil (diredfl))
+ '(doc-view-resolution 144)
  '(ediff-split-window-function 'split-window-horizontally)
  '(ediff-window-setup-function 'ediff-setup-windows-plain)
  '(erc-hide-list '("JOIN" "QUIT"))
@@ -122,7 +123,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :extend nil :stipple nil :background "#272822" :foreground "#F8F8F2" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 132 :width normal :foundry "    " :family "Vazir Code Hack Extra Height"))))
- '(aw-leading-char-face ((t (:foreground "OliveDrab1" :height 1.7))))
+ '(aw-leading-char-face ((t (:foreground "dark violet" :height 1.7))))
  '(region ((t nil)))
  '(tab-bar ((t (:inherit mode-line :background "grey85" :foreground "black"))))
  '(tab-bar-tab ((t (:box (:line-width (1 . 1) :style released-button) :foreground "OliveDrab2" :inherit mode-line))))
