@@ -40,8 +40,8 @@ alias yt-dlp='proxychains yt-dlp'
 alias yt3='yt-dlp -f ba -x --audio-format mp3 -o "%(title)s"'
 
 # nerdctl
-alias nl='nerdctl'
-alias nlr='nerdctl run --rm'
+alias nd='nerdctl'
+alias ndr='nerdctl run --rm'
 
 #
 alias rr='rm -ri'
