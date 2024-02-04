@@ -1,0 +1,9 @@
+[Unit]
+Description=RedShift
+
+[Service]
+Type=idle
+ExecStart=/usr/bin/redshift
+
+[Install]
+WantedBy=default.target
