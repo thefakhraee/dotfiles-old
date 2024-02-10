@@ -1,8 +1,9 @@
 [Unit]
 Description=RedShift
+After=multi-user.target lightdm.service
 
 [Service]
-Type=idle
+Type=simple
 ExecStart=/usr/bin/redshift
 
 [Install]
