@@ -1,79 +1,87 @@
 ;; Key Bindings
 
-(bind-keys* :prefix-map local-main-map
-	    :prefix "C-;"
-;	    :prefix "M-SPC"
+(bind-keys*
+ ("M-SPC" . consult-buffer)
+ ("M-o" . consult-buffer-other-window)
+ ("M--" . popper-toggle)
+ ("M-[" . writeroom-mode)
+ ("M-]" . kill-process))
 
+(bind-keys* :prefix-map local-alt-bktk-map
+	    :prefix "M-`"
+	    ("M-`" . ace-window)
+	    ("<tab>" . window-swap-states)
+	    ("s" . local/window-split-toggle)
+	    )
+
+(bind-keys* :prefix-map local-alt-bkspc-map
+	    :prefix "M-<backspace>"
+	    ("M-<backspace>" . vterm-toggle)
+	    ("e" . eshell)
+	    ("h" . consult-history)
+	    ("k" . vterm-send-next-key)
+	    )
+
+(bind-keys* :prefix-map local-alt-bkslsh-map
+	    :prefix "M-\\"
 	    ("`" . tmm-menubar)
-	    ("<backspace>" . vterm-toggle)
-	    ("C-<backspace>" . vterm-send-next-key)
-	    ("SPC" . consult-buffer)
-	    ("\\" . eshell)
-	    ("-" . popper-toggle)
-	    ("[" . local/google-translate)
-	    ("]" . local/bidi)
-	    ("=" . local/unsocks)
-	    ("M-=" . local/socks)
-	    (";" . consult-history)
-	    ("?" . consult-man)
-	    ("| |" . writeroom-mode)
-	    ("| +" . writeroom-increase-width)
-	    ("| -" . writeroom-decrease-width)
-	    ("a" . ace-window)
+	    ("?" . man)
+	    ("0" . local/unsocks)
+	    ("1" . local/socks)
+	    (">" . writeroom-increase-width)
+	    ("<" . writeroom-decrease-width)
+	    ("SPC" . whitespace-mode)
+	    )
+
+(bind-keys* :prefix-map local-alt-smcol-map
+	    :prefix "M-;"
+	    ("b" . local/bidi)
 	    ("c" . display-fill-column-indicator-mode)
 	    ("f" . consult-recent-file)
-	    ("e a" . embark-act)
-	    ("e b" . embark-become)
-	    ("e c" . embark-collect)
-	    ("e d" . embark-dwim)
-	    ("e e" . embark-export)
-	    ("e l" . embark-live)
-	    ("h" . whitespace-mode)
+	    ("g" . local/google-translate)
 	    ("i" . ibuffer)
-	    ("k" . kill-process)
-	    ("n" . make-directory)
-	    ("o" . consult-buffer-other-window)
-	    ("p i" . package-install)
-	    ("p l" . package-list-packages)
-	    ("p r" . package-autoremove)
-	    ("p g" . playerctl-play-pause-song)
-	    ("p n" . playerctl-next-song)
-	    ("p p" . playerctl-previous-song)	    
-	    ("r h" . shr-render-buffer)
-	    ("r p" . replace-string)
-	    ("r s" . async-shell-command)	    
-	    ("s c" . avy-goto-char)
-	    ("s f" . consult-find)
-	    ("s l" . consult-goto-line)
-	    ("s m" . consult-line-multi)
-	    ("s r" . rg)
-	    ("s u" . consult-focus-lines)
-	    ("s s" . consult-line)
-	    ("u" . consult-outline)
+	    ("n" . customize-option)
+	    ("r" . shr-render-buffer)
 	    ("t" . trashed)
 	    ("v" . revert-buffer)
-	    ("w s" . local/window-split-toggle)
-	    ("w w" . window-swap-states)
 	    ("x" . desktop-read)
 	    ("X" . desktop-save-in-desktop-dir)
 	    ("y" . consult-yank-from-kill-ring)
-	    ("z g" . customize-group)
-	    ("z o" . customize-option)
+	    ("z" . customize-group)
 	    )
 
-;;; Saving Time?
-(bind-keys*
- ("M-<backspace>" . vterm-toggle)
- ("M-\\" . eshell)
- ("M-SPC" . consult-buffer)
- ("M-o" . consult-buffer-other-window)
- ("M-`" . ace-window)
- ("M--" . popper-toggle)
- ("M-s" . consult-line)
- ("M-;" . consult-history)
- ("M-[" . local/google-translate)
- ("M-]" . local/bidi)
- ("M-G" . consult-grep))
+(bind-keys* :prefix-map local-alt-p-map
+	    :prefix "M-p"
+	    ("M-p" . package-list-packages)
+	    ("i" . package-install)
+	    ("r" . package-autoremove)
+	    ("g" . playerctl-play-pause-song)
+	    ("n" . playerctl-next-song)
+	    ("p" . playerctl-previous-song)
+	    )
+
+(bind-keys* :prefix-map local-alt-s-map
+	    :prefix "M-s"
+    	    ("M-s" . consult-line)
+    	    ("c" . avy-goto-char)
+	    ("f" . consult-find)
+	    ("g" . consult-grep)
+	    ("l" . consult-goto-line)
+	    ("m" . consult-line-multi)
+	    ("o" . consult-outline)
+	    ("r" . replace-string)
+	    ("u" . consult-focus-lines)
+	    )
+
+(bind-keys* :prefix-map local-embark-map
+	    :prefix "C-;"
+	    ("a" . embark-act)
+	    ("b" . embark-become)
+	    ("c" . embark-collect)
+	    ("d" . embark-dwim)
+	    ("e" . embark-export)
+	    ("l" . embark-live)
+	    )
 
 ;;; In Persian Layout
 (bind-keys*

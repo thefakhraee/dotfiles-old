@@ -66,7 +66,7 @@
    '(("gnu" . "https://elpa.gnu.org/packages/")
      ("melpa" . "https://raw.githubusercontent.com/d12frosted/elpa-mirror/master/melpa/")))
  '(package-selected-packages
-   '(writeroom-mode diredfl json-mode doom-themes xterm-color vterm-toggle lsp-ui lsp-mode flycheck yaml-mode ox-reveal celestial-mode-line rainbow-delimiters eshell-syntax-highlighting trashed org-download dired-hide-dotfiles playerctl compat embark-consult ace-window crux org-modern rg corfu popper pulsar which-key vertico orderless marginalia embark bind-key bash-completion avy))
+   '(writeroom-mode diredfl json-mode doom-themes xterm-color vterm-toggle lsp-ui lsp-mode flycheck yaml-mode ox-reveal celestial-mode-line rainbow-delimiters eshell-syntax-highlighting trashed org-download dired-hide-dotfiles playerctl compat embark-consult ace-window crux org-modern corfu popper pulsar which-key vertico orderless marginalia embark bind-key bash-completion avy))
  '(popper-echo-mode t)
  '(popper-mode t)
  '(popper-reference-buffers
@@ -91,6 +91,8 @@
  '(tab-bar-select-tab-modifiers '(control))
  '(tab-bar-tab-name-function 'tab-bar-tab-name-current-with-count)
  '(tool-bar-mode nil)
+ '(use-dialog-box nil)
+ '(use-file-dialog nil)
  '(use-short-answers t)
  '(user-full-name "Morteza Fakhraee")
  '(user-mail-address "thefakhraee@gmail.com")

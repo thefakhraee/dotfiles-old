@@ -24,3 +24,5 @@
                              (float-time
                               (time-subtract after-init-time before-init-time)))
                      gcs-done)))
+
+(call-interactively #'cd)

@@ -1,4 +1,5 @@
 (defun local/kill-that-buffer ()
+  "Kill the buffer on other window."
   (interactive)
   (other-window 1)
   (kill-this-buffer)
@@ -7,6 +8,7 @@
 
 ;;; Persian
 (defun local/bidi ()
+  "RTL mode for Persian."
   (interactive)
   (setq-local bidi-paragraph-direction 'nil)
 ;;  (set-fontset-font t 'arabic "Nika-13")
@@ -15,6 +17,7 @@
 
 ;;; Socks 9050
 (defun local/socks ()
+  "Use Socks on 9050."
   (interactive)
   (setq-local socks-override-functions t)
   (setq-local socks-noproxy '("127.0.0.1"))
@@ -24,6 +27,7 @@
   )
 
 (defun local/unsocks ()
+  "Disable Socks."
   (interactive)
   (setq-local url-gateway-method 'native)
   (setq-local socks-override-functions nil)
@@ -33,6 +37,7 @@
 ;;https://oleksandrmanzyuk.wordpress.com/2011/09/21/using-google-translate-from-emacs/
 ; (thing-at-point 'word 'no-properties)
 (defun local/google-translate (text)
+  "Translate using Google Translate."
   (interactive
    (list
     (read-from-minibuffer "Translate: ")))
