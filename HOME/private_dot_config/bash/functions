@@ -46,11 +46,6 @@ add_opt_fzf() {
 }
 
 
-fin() {
-  find "$2" -iname "*$1*"
-}
-
-
 # update only $this repo
 update_repo() {
   for source in "$@".list; do
@@ -66,46 +61,17 @@ R() {
   exec $SHELL $SHELL_ARGS "$@"
 }
 
-
-# get file and encode to mp3
-mp3it() {
-	[[ "${1}" = '-r' ]] && remove_origin=true && shift
-	slashnamedot="${1}"
-	namewav="${2}"
-	namedot="${slashnamedot##*/}"
-	name="${namedot%%.*}"
-	[[ -z "${namewav}" ]] && namewav="/$(pwd)/${name/:/BADHY}.wav"
-	{ mplayer -quiet -ao pcm:file="${namewav}" -vo null "${slashnamedot}" || \
-	mpv --ao=pcm --ao-pcm-file="${namewav}" --no-video "${slashnamedot}"; } &&
-	lame "${namewav}" "${name}.mp3"
-	/bin/rm "${namewav}"
-	[[ "${remove_origin}" = 'true' ]] && /bin/rm "${slashnamedot}"
-}
-
 # send git diff to remote server
 gdiffr() {
   host="${1}"
   git diff | ssh "${host}" 'cat - >/tmp/.gdiffr'
 }
 
-
-# current mpd playing song
-song() {
-	mpc --host="$XDG_RUNTIME_DIR/mpd/socket" current
-	}
-
-
 # purge unused kernels and headers
 unuker() {
  kv=$(uname -r|awk -F- '{print $1"-"$2}')
  sudo aptitude purge \
  "?installed?or(linux-headers-[0-9],linux-image-[0-9]) ?installed?not(${kv})"
-}
-
-
-new_script() {
-  echo -e '#!/usr/bin/env bash\n#\n#set -x\n' >"${1}"
-  vim "${1}"
 }
 
 
@@ -132,38 +98,10 @@ sshR() {
 }
 
 
-setres() {
-  w=${1}
-  h=${2}
-  z=${3}
-  mode=$(cvt ${w} ${h} ${z} | tail -1 | cut -d' ' -f2-)
-  size=${w}x${h}_${z}.00
-  output=$(xrandr | awk '/ connect/ {print $1}')
-  xrandr --newmode ${mode}
-  xrandr --addmode ${output} ${size}
-  xrandr -s ${size}
-}
-
-
 wgetr() {
   wget --no-directories --recursive --level=1 --execute robots=off "${1}"
 }
 
-
-swapmouse() {
-  xmodmap -e "pointer = 3 2 1"
-}
-
-
-# cheat.sh
-che() {
-	curl http://cheat.sh/"$1"
-}
-
-# m4a to mp3
-fmp3it() {
-       ffmpeg -i "$1" -c:v copy -c:a libmp3lame -q:a 4 "$2"
-}
 
 # debian
 updg() {
@@ -247,3 +185,6 @@ youtube_mp3() {
 #    esac
 #}
 
+mp3it() {
+  ffmpeg -i $1 -vn -ar 44100 -ac 2 -b:a 192k $2
+}

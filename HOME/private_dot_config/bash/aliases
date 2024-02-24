@@ -1,6 +1,3 @@
-# sudo aliases
-alias sudo='sudo '
-
 # ls
 alias ls='ls --literal --color=auto'
 alias l='ls -1'
