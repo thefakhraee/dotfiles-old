@@ -1,9 +1,3 @@
 HISTCONTROL=ignoreboth
 INPUTRC=$HOME/.config/bash/inputrc
-local_opt="$HOME/.local/opt"
-GOPATH="$HOME/Projects/golang"
-if [[ -z $INSIDE_EMACS ]]; then
-  export EDITOR="emacsclient -t"
-else
-  export EDITOR="emacsclient"
-fi
+
