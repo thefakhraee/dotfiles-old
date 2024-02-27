@@ -83,7 +83,7 @@
  '(sh-basic-offset 2)
  '(shell-dynamic-complete-functions
    '(comint-c-a-p-replace-by-expanded-history shell-environment-variable-completion shell-command-completion shell-c-a-p-replace-by-expanded-directory pcomplete-completions-at-point shell-filename-completion comint-filename-completion bash-completion-dynamic-complete))
- '(shell-file-name "/bin/bash")
+ '(shell-file-name "/bin/zsh")
  '(tab-always-indent 'complete)
  '(tab-bar-close-button-show nil)
  '(tab-bar-format '(tab-bar-format-tabs))

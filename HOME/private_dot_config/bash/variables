@@ -1,3 +1,0 @@
-HISTCONTROL=ignoreboth
-INPUTRC=$HOME/.config/bash/inputrc
-
